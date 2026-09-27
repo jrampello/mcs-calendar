@@ -1,51 +1,858 @@
-BEGIN:VEVENT
-UID:mcs-20260519-thereliabilityconference2026@maxcontentsolutions.com
-DTSTAMP:20260609T000000Z
-DTSTART;VALUE=DATE:20260519
-DTEND;VALUE=DATE:20260521
-SUMMARY:The Reliability Conference 2026
-LOCATION:South San Francisco\, CA
-DESCRIPTION:Reliability\, maintenance & EAM professionals conference.\n\nMore info: https://reliabilityweb.com/en/events/\n\nCurated by Max Content Solutions\nhttps://www.maxcontentsolutions.com/conference-calendar
-CATEGORIES:EAM Industry
-STATUS:CONFIRMED
-URL:https://reliabilityweb.com/en/events/
-END:VEVENT
+<!-- ============================================================
+     MAX CONTENT SOLUTIONS — CONFERENCE CALENDAR PAGE EMBED
+     Brand: Inter | #1F1A2E | #5A2F90 | #886CAE | #CDBDD9
+            #C8873A | #F0D9BC | #2E6E8E | #F5F3F7
 
-BEGIN:VEVENT
-UID:mcs-20260928-smrp2026@maxcontentsolutions.com
-DTSTAMP:20260609T000000Z
-DTSTART;VALUE=DATE:20260928
-DTEND;VALUE=DATE:20261002
-SUMMARY:SMRP Annual Conference 2026
-LOCATION:Raleigh\, NC
-DESCRIPTION:Society for Maintenance & Reliability Professionals annual conference.\n\nMore info: https://smrp.org/Events/Annual-Conference\n\nCurated by Max Content Solutions\nhttps://www.maxcontentsolutions.com/conference-calendar
-CATEGORIES:EAM Industry
-STATUS:CONFIRMED
-URL:https://smrp.org/Events/Annual-Conference
-END:VEVENT
+     HOW TO USE IN WEBFLOW:
+     1. Delete every section between your header and footer
+     2. Add a single "Embed" block in that empty space
+     3. Double-click → paste ALL of this code → Save & Close
+     4. Set the Webflow SECTION wrapping this embed:
+        - Background: #1F1A2E
+        - Padding: 0 on all sides
 
-BEGIN:VEVENT
-UID:mcs-20261005-iamnorthamerica2026@maxcontentsolutions.com
-DTSTAMP:20260609T000000Z
-DTSTART;VALUE=DATE:20261005
-DTEND;VALUE=DATE:20261008
-SUMMARY:IAM North American Conference 2026
-LOCATION:Toronto\, ON
-DESCRIPTION:Institute of Asset Management North American Conference.\n\nMore info: https://theiam.org/events/iam-north-american-conference-2026/\n\nCurated by Max Content Solutions\nhttps://www.maxcontentsolutions.com/conference-calendar
-CATEGORIES:EAM Industry
-STATUS:CONFIRMED
-URL:https://theiam.org/events/iam-north-american-conference-2026/
-END:VEVENT
+     CHANGED IN THIS VERSION (Sept 27, 2026):
+     - Added Florida MUG 2026 Annual Meeting (Nov 5, Orlando)
+     - Florida MUG projection now March + November
+     - SMRP projection moved to September (prevents duplicate)
+     - CanMUG Fall 2026 location standardized to "Calgary, AB"
+     - DCMUG link corrected to trmnet.com
+     - MSCM recategorized as EAM Industry
+     - "Upcoming only" button now highlights correctly
+     - Footer CTA: "your firm" changed to "your company"
+     ============================================================ -->
 
-BEGIN:VEVENT
-UID:mcs-20261005-maintrain2026@maxcontentsolutions.com
-DTSTAMP:20260609T000000Z
-DTSTART;VALUE=DATE:20261005
-DTEND;VALUE=DATE:20261008
-SUMMARY:MainTrain 2026 (PEMAC)
-LOCATION:Montréal\, QC
-DESCRIPTION:Canada's largest maintenance\, reliability & asset management conference.\n\nMore info: https://www.pemac.org/events/conference\n\nCurated by Max Content Solutions\nhttps://www.maxcontentsolutions.com/conference-calendar
-CATEGORIES:EAM Industry
-STATUS:CONFIRMED
-URL:https://www.pemac.org/events/conference
-END:VEVENT
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+html, body { overflow-x: hidden !important; max-width: 100% !important; }
+
+.cal-page *, .cal-page *::before, .cal-page *::after {
+  box-sizing: border-box; margin: 0; padding: 0; text-align: left;
+}
+.cal-page {
+  font-family: 'Inter', -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 20px; line-height: 1.6; color: #1F1A2E;
+  width: 100%; max-width: 100%; overflow-x: hidden;
+}
+
+/* ── Shared tokens ── */
+.cal-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 20px; font-weight: 700; letter-spacing: 0.13em;
+  text-transform: uppercase; color: #C8873A; margin-bottom: 16px;
+}
+.cal-eyebrow::before {
+  content: ''; display: block; width: 20px; height: 1.5px;
+  background: #C8873A; flex-shrink: 0;
+}
+.cal-gold-rule { width: 36px; height: 2px; background: #C8873A; margin: 16px 0 22px; }
+.cal-divider { height: 1px; background: linear-gradient(to right, transparent, #CDBDD9, transparent); }
+
+/* ── Buttons ── */
+.cal-btn-gold {
+  display: inline-block; background: #C8873A; color: #fff;
+  text-decoration: none; font-size: 20px; font-weight: 700;
+  padding: 14px 28px; border-radius: 6px; border: none; cursor: pointer;
+  transition: background 0.2s, transform 0.15s; line-height: 1;
+}
+.cal-btn-gold:hover { background: #d9944a; color: #fff; transform: translateY(-1px); }
+.cal-btn-outline {
+  display: inline-block; background: transparent; color: #CDBDD9;
+  text-decoration: none; font-size: 20px; font-weight: 500;
+  padding: 13px 28px; border-radius: 6px; border: 1px solid #5A2F90;
+  cursor: pointer; transition: border-color 0.2s, color 0.2s; line-height: 1;
+}
+.cal-btn-outline:hover { border-color: #886CAE; color: #fff; }
+.cal-btn-subscribe {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: transparent; color: rgba(255,255,255,0.6);
+  text-decoration: none; font-size: 20px; font-weight: 500;
+  padding: 13px 22px; border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.18);
+  cursor: pointer; transition: border-color 0.2s, color 0.2s; line-height: 1;
+}
+.cal-btn-subscribe:hover { border-color: rgba(255,255,255,0.45); color: #fff; }
+.cal-btn-subscribe svg { flex-shrink: 0; opacity: 0.7; transition: opacity 0.2s; }
+.cal-btn-subscribe:hover svg { opacity: 1; }
+.cal-cta-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+
+/* ════════════════════════════════════
+   S1 — HERO
+════════════════════════════════════ */
+.cal-hero {
+  background: #1F1A2E; width: 100%;
+  padding: 64px 32px 56px; position: relative; overflow: hidden;
+}
+.cal-hero::before {
+  content: ''; position: absolute; top: -100px; right: -100px;
+  width: 440px; height: 440px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(90,47,144,0.3) 0%, transparent 65%);
+  pointer-events: none;
+}
+.cal-hero::after {
+  content: ''; position: absolute; bottom: -60px; left: 10%;
+  width: 280px; height: 280px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(200,135,58,0.08) 0%, transparent 65%);
+  pointer-events: none;
+}
+.cal-hero__inner {
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: 1.2fr 0.8fr;
+  gap: 48px; align-items: center;
+}
+.cal-hero__content { max-width: 560px; }
+.cal-hero__graphic { display: flex; align-items: center; justify-content: center; }
+.cal-hero__graphic svg { width: 100%; max-width: 280px; height: auto; }
+.cal-hero__h1 {
+  font-size: clamp(26px, 3.5vw, 40px); font-weight: 700;
+  color: #fff; line-height: 1.15; margin-bottom: 8px;
+}
+.cal-hero__h1 .cal-lilac { color: #CDBDD9; }
+.cal-hero__sub {
+  font-size: 20px; color: rgba(255,255,255,0.62);
+  line-height: 1.78; margin-bottom: 28px; max-width: 540px;
+}
+.cal-hero__sub strong { color: rgba(255,255,255,0.9); font-weight: 600; }
+.cal-hero__trust {
+  display: flex; flex-wrap: wrap; gap: 18px;
+  padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.07); margin-top: 28px;
+}
+.cal-trust-item {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 20px; color: rgba(255,255,255,0.45);
+}
+.cal-trust-item::before { content: '✓'; color: #C8873A; font-weight: 700; }
+
+/* ════════════════════════════════════
+   S2 — CALENDAR BODY
+════════════════════════════════════ */
+.cal-body {
+  background: #F5F3F7; width: 100%; padding: 56px 32px 64px;
+}
+
+/* ── Spotlight card (next event) ── */
+.mcal-spot {
+  background: #1F1A2E;
+  border: 1px solid rgba(90,47,144,0.4);
+  border-radius: 12px; padding: 24px 28px; margin-bottom: 28px;
+  position: relative; overflow: hidden;
+}
+.mcal-spot::before {
+  content: ''; position: absolute; top: -40px; right: -40px;
+  width: 180px; height: 180px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(90,47,144,0.25) 0%, transparent 68%);
+  pointer-events: none;
+}
+.mcal-spot-lbl {
+  font-size: 20px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: #C8873A; margin-bottom: 8px;
+}
+.mcal-spot-name { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+.mcal-spot-meta {
+  font-size: 20px; color: rgba(255,255,255,0.55);
+  display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 10px;
+}
+.mcal-spot-badge {
+  display: inline-block; padding: 5px 16px; border-radius: 100px;
+  font-size: 20px; font-weight: 700; color: #fff;
+}
+
+/* ── Controls ── */
+.mcal-ctls {
+  display: flex; gap: 8px; flex-wrap: wrap;
+  align-items: center; margin-bottom: 24px;
+}
+.mcal-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px; font-weight: 500; padding: 8px 16px;
+  border-radius: 6px; border: 1px solid #CDBDD9;
+  background: #fff; color: #886CAE;
+  cursor: pointer; transition: all 0.15s; line-height: 1.3;
+}
+.mcal-btn:hover { background: #F5F3F7; color: #5A2F90; border-color: #886CAE; }
+.mcal-btn.on {
+  background: #5A2F90; color: #fff;
+  border-color: #5A2F90; font-weight: 700;
+}
+.mcal-sep {
+  width: 1px; height: 28px;
+  background: #CDBDD9; flex-shrink: 0;
+}
+
+/* ── Legend ── */
+.mcal-legend {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin-bottom: 24px;
+}
+.mcal-leg {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 20px; color: #fff; font-weight: 600;
+  padding: 7px 16px; border-radius: 100px;
+}
+.mcal-leg-dot { display: none; }
+.mcal-leg.predicted-leg {
+  background: transparent !important;
+  border: 2px dashed #C8873A;
+  color: #C8873A;
+}
+
+/* ── Year label ── */
+.mcal-yr-lbl {
+  font-size: 20px; font-weight: 700; color: #5A2F90;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  padding: 16px 0 6px;
+  border-top: 2px solid #CDBDD9; margin-top: 8px;
+}
+.mcal-yr-lbl:first-child { margin-top: 0; border-top: none; padding-top: 0; }
+
+/* ── Month view ── */
+.mcal-months { display: flex; flex-direction: column; }
+.mcal-month-row {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 12px;
+  align-items: flex-start;
+  border-top: 1px solid #CDBDD9; padding: 10px 0;
+}
+.mcal-month-lbl {
+  font-size: 20px; font-weight: 700;
+  color: #886CAE; text-transform: uppercase;
+  letter-spacing: 0.05em; padding-top: 6px;
+  flex-shrink: 0; min-width: 0;
+}
+.mcal-month-evts {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  min-width: 0;
+}
+
+/* ── Pills ── */
+.mcal-pill {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 6px 14px; border-radius: 100px;
+  font-size: 20px; font-weight: 600; color: #fff;
+  cursor: default; white-space: nowrap;
+  transition: opacity 0.15s, transform 0.15s;
+  text-decoration: none;
+}
+.mcal-pill:hover { transform: translateY(-1px); opacity: 0.9; }
+.mcal-pill.past { opacity: 0.3; }
+.mcal-pill-city { font-size: 20px; font-weight: 400; opacity: 0.8; }
+
+/* ── List view ── */
+.mcal-list { display: flex; flex-direction: column; }
+.mcal-list-item {
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 14px 0; border-top: 1px solid #CDBDD9;
+}
+.mcal-list-item.past { opacity: 0.35; }
+.mcal-list-dot {
+  width: 12px; height: 12px; border-radius: 50%;
+  flex-shrink: 0; margin-top: 6px;
+}
+.mcal-list-name {
+  font-size: 20px; font-weight: 600; color: #1F1A2E;
+}
+.mcal-list-name a { color: #2E6E8E; text-decoration: none; }
+.mcal-list-name a:hover { color: #5A2F90; text-decoration: underline; }
+.mcal-list-meta { font-size: 20px; color: #886CAE; margin-top: 4px; }
+.mcal-list-tag {
+  display: inline-block; font-size: 20px; font-weight: 700;
+  padding: 2px 10px; border-radius: 100px;
+  margin-left: 10px; vertical-align: middle; color: #fff;
+}
+
+/* ── Empty state ── */
+.mcal-empty { padding: 2rem 0; color: #886CAE; font-size: 20px; }
+
+/* ── Predicted / TBD events ── */
+.mcal-pill.predicted {
+  opacity: 0.65;
+  border: 2px dashed rgba(255,255,255,0.5) !important;
+  background: transparent !important;
+  position: relative;
+}
+.mcal-pill.predicted .mcal-pill-tbd {
+  font-size: 20px; font-weight: 700;
+  background: rgba(255,255,255,0.2);
+  border-radius: 4px; padding: 0 5px;
+  margin-left: 2px;
+}
+.mcal-list-item.predicted { opacity: 0.65; }
+.mcal-list-item.predicted .mcal-list-name { font-style: italic; }
+.mcal-predicted-badge {
+  display: inline-block; font-size: 20px; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  background: rgba(200,135,58,0.15); color: #C8873A;
+  border: 1px solid rgba(200,135,58,0.35);
+  border-radius: 4px; padding: 1px 8px;
+  margin-left: 8px; vertical-align: middle;
+}
+
+/* ── Footer / sources ── */
+.cal-sources-section {
+  background: #1F1A2E; width: 100%; padding: 40px 32px 44px;
+}
+.cal-sources-note {
+  font-size: 20px; color: rgba(255,255,255,0.6);
+  line-height: 1.65; margin-bottom: 20px;
+}
+.cal-sources-note a {
+  color: #C8873A; text-decoration: none; font-weight: 600;
+}
+.cal-sources-note a:hover { text-decoration: underline; }
+.cal-sources-label {
+  font-size: 20px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: #886CAE; margin-bottom: 12px;
+}
+.cal-sources-links {
+  display: flex; flex-wrap: wrap; gap: 10px;
+}
+.cal-sources-links a {
+  display: inline-block; font-size: 20px; font-weight: 500;
+  color: rgba(255,255,255,0.55); text-decoration: none;
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+  padding: 6px 14px; border-radius: 6px;
+  transition: color 0.15s, background 0.15s;
+}
+.cal-sources-links a:hover {
+  color: #fff; background: rgba(90,47,144,0.3);
+  border-color: rgba(90,47,144,0.5);
+}
+
+/* ════════════════════════════════════
+   S3 — FOOTER CTA
+════════════════════════════════════ */
+.cal-cta {
+  background: #F5F3F7; width: 100%;
+  padding: 64px 32px 56px; text-align: center;
+}
+.cal-cta__inner { max-width: 560px; margin: 0 auto; }
+.cal-cta h2 {
+  font-size: clamp(22px, 3vw, 30px); font-weight: 700;
+  color: #5A2F90; line-height: 1.2; margin-bottom: 14px;
+}
+.cal-cta p {
+  font-size: 20px; color: #886CAE;
+  line-height: 1.75; margin-bottom: 28px;
+}
+.cal-cta .cal-cta-row { justify-content: center; }
+.cal-cta__tagline {
+  display: block; margin-top: 28px; font-size: 20px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase; color: #CDBDD9;
+}
+
+/* ════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════ */
+@media (max-width: 900px) {
+  .mcal-ctls { gap: 6px; }
+  .mcal-month-lbl { width: 40px; font-size: 20px; }
+  .cal-hero__inner { grid-template-columns: 1fr; gap: 32px; }
+  .cal-hero__graphic svg { max-width: 220px; }
+}
+@media (max-width: 600px) {
+  .cal-hero, .cal-body, .cal-sources-section, .cal-cta {
+    padding: 48px 20px 44px !important;
+  }
+  .cal-hero__h1 { font-size: 26px !important; word-break: break-word; }
+  .cal-cta__inner { max-width: 100%; }
+  .cal-cta-row { flex-direction: column !important; }
+  .cal-cta-row a { width: 100% !important; text-align: center !important; }
+  .mcal-ctls { gap: 6px; }
+  .mcal-pill { font-size: 20px; padding: 5px 10px; }
+}
+</style>
+
+<div class="cal-page">
+
+<!-- ════════════════════════════════════
+     S1 — HERO
+════════════════════════════════════ -->
+<section class="cal-hero">
+  <div class="cal-hero__inner">
+    <div class="cal-hero__content">
+      <div class="cal-eyebrow">Maximo community</div>
+      <h1 class="cal-hero__h1">IBM Maximo<br><span class="cal-lilac">Conference Calendar</span></h1>
+      <div class="cal-gold-rule"></div>
+      <p class="cal-hero__sub">Every major Maximo conference, user group meeting, and industry event in one place. <strong>Updated regularly</strong> so you never miss a chance to connect with the ecosystem.</p>
+      <div class="cal-cta-row">
+        <a href="mailto:info@maxcontentsolutions.com?subject=Calendar Correction or Submission" class="cal-btn-gold">Submit or correct an event</a>
+        <a href="https://liquidenterprise.com/maxcon" class="cal-btn-outline">MAXCON™ 2027 Event</a>
+        <a href="https://raw.githubusercontent.com/jrampello/mcs-calendar/refs/heads/main/maximo-conference-calendar.ics" class="cal-btn-subscribe" title="Subscribe — new events sync automatically to your calendar app">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="3" width="14" height="12" rx="2" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M1 7h14" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M5 1v3M11 1v3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M8 10v2M7 11h2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+          Subscribe to calendar
+        </a>
+      </div>
+      <div class="cal-hero__trust">
+        <span class="cal-trust-item">Maximo &amp; EAM events worldwide</span>
+        <span class="cal-trust-item">User groups, conferences &amp; training</span>
+        <span class="cal-trust-item">Verify dates before travel</span>
+        <span class="cal-trust-item">Auto-syncs to your calendar app</span>
+      </div>
+    </div>
+    <div class="cal-hero__graphic">
+      <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+        <rect x="55" y="60" width="210" height="200" rx="20" fill="#5A2F90"/>
+        <rect x="100" y="42" width="14" height="34" rx="7" fill="#C8873A"/>
+        <rect x="206" y="42" width="14" height="34" rx="7" fill="#C8873A"/>
+        <rect x="55" y="100" width="210" height="160" rx="16" fill="#F5F3F7"/>
+        <circle cx="90" cy="145" r="6" fill="#CDBDD9"/>
+        <circle cx="140" cy="145" r="8" fill="#C8873A"/>
+        <circle cx="190" cy="145" r="6" fill="#CDBDD9"/>
+        <circle cx="90" cy="185" r="6" fill="#CDBDD9"/>
+        <circle cx="140" cy="185" r="6" fill="#CDBDD9"/>
+        <circle cx="219" cy="185" r="8" fill="#C8873A"/>
+        <circle cx="90" cy="225" r="8" fill="#C8873A"/>
+        <circle cx="140" cy="225" r="6" fill="#CDBDD9"/>
+        <circle cx="190" cy="225" r="6" fill="#CDBDD9"/>
+        <path d="M219 185 L245 222" stroke="#C8873A" stroke-width="2" stroke-dasharray="4 4" opacity="0.5"/>
+        <g transform="translate(250,250)">
+          <path d="M0 -26c-14 0-26 12-26 26c0 20 26 46 26 46s26-26 26-46c0-14-12-26-26-26z" fill="#C8873A"/>
+          <circle cx="0" cy="0" r="10" fill="#F5F3F7"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="cal-divider"></div>
+
+<!-- ════════════════════════════════════
+     S2 — CALENDAR
+════════════════════════════════════ -->
+<section class="cal-body">
+
+  <!-- Spotlight: next event -->
+  <div class="mcal-spot">
+    <div class="mcal-spot-lbl">Next upcoming event</div>
+    <div class="mcal-spot-name" id="mcal-spot-name">—</div>
+    <div class="mcal-spot-meta">
+      <span id="mcal-spot-date">—</span>
+      <span id="mcal-spot-loc">—</span>
+    </div>
+    <div id="mcal-spot-badge"></div>
+  </div>
+
+  <!-- Controls -->
+  <div class="mcal-ctls">
+    <button class="mcal-btn on" id="mcal-btn-month" onclick="mcalSV('month')">📅 Monthly</button>
+    <button class="mcal-btn"   id="mcal-btn-list"   onclick="mcalSV('list')">☰ List</button>
+    <div class="mcal-sep"></div>
+    <button class="mcal-btn"    id="mcal-f-all"       onclick="mcalSF('all')">All</button>
+    <button class="mcal-btn"    id="mcal-f-major"     onclick="mcalSF('major')">MaximoWorld / TechXchange</button>
+    <button class="mcal-btn"    id="mcal-f-mug"       onclick="mcalSF('mug')">MUGs</button>
+    <button class="mcal-btn"    id="mcal-f-canada"    onclick="mcalSF('canada')">CanMUG</button>
+    <button class="mcal-btn"    id="mcal-f-imc"       onclick="mcalSF('imc')">IMC</button>
+    <button class="mcal-btn"    id="mcal-f-muwg"      onclick="mcalSF('muwg')">MUWG</button>
+    <button class="mcal-btn"    id="mcal-f-maxcon"    onclick="mcalSF('maxcon')">MAXCON Event</button>
+    <button class="mcal-btn"    id="mcal-f-tririga"   onclick="mcalSF('tririga')">Tririga/MREF</button>
+    <button class="mcal-btn"    id="mcal-f-industry"  onclick="mcalSF('industry')">EAM Industry</button>
+    <button class="mcal-btn"    id="mcal-f-intl"      onclick="mcalSF('intl')">International</button>
+    <button class="mcal-btn on" id="mcal-f-confirmed" onclick="mcalSF('confirmed')">Upcoming only</button>
+    <button class="mcal-btn"    id="mcal-f-past"      onclick="mcalSF('past')">Past</button>
+  </div>
+
+  <!-- Views -->
+  <div id="mcal-view-month"></div>
+  <div id="mcal-view-list" style="display:none"></div>
+
+</section>
+
+<div class="cal-divider"></div>
+
+<!-- ════════════════════════════════════
+     SOURCES
+════════════════════════════════════ -->
+<section class="cal-sources-section">
+  <p class="cal-sources-note">Verify dates before travel. Missing an event or need a correction? Email <a href="mailto:info@maxcontentsolutions.com">info@maxcontentsolutions.com</a></p>
+  <div class="cal-sources-label">Event sources</div>
+  <div class="cal-sources-links">
+    <a href="https://moremaximo.com/events/calendar" target="_blank">MORE Community</a>
+    <a href="https://starboard-consulting.com/maximo-industry-events/" target="_blank">Starboard Consulting</a>
+    <a href="https://reliabilityweb.com/en/events/" target="_blank">ReliabilityWeb</a>
+    <a href="https://www.muwg.org/" target="_blank">MUWG</a>
+    <a href="https://www.gomaximo.org/" target="_blank">GOMaximo</a>
+    <a href="https://canmug.org/events" target="_blank">CanMUG</a>
+    <a href="https://nemugs.com/" target="_blank">NEMUG</a>
+    <a href="https://pacmug.org/" target="_blank">PacMUG</a>
+    <a href="https://wmmug.org/" target="_blank">WMMUG</a>
+    <a href="https://swmug.org/" target="_blank">SWMUG</a>
+    <a href="https://airportmug.com/" target="_blank">AMUG</a>
+    <a href="https://maintenanceconference.com/" target="_blank">IMC</a>
+    <a href="https://lvmug.org/" target="_blank">LVMUG</a>
+    <a href="https://fmmug.org/" target="_blank">FMMUG</a>
+    <a href="https://maximogroups.org/" target="_blank">MaximoGroups.org</a>
+    <a href="https://liquidenterprise.com/maxcon" target="_blank">MAXCON</a>
+    <a href="https://www.ibm.com/events/techxchange" target="_blank">IBM TechXchange</a>
+    <a href="https://community.ibm.com/community/user/events/usergroupsevents" target="_blank">IBM Community</a>
+    <a href="https://www.mrosupplychainmatters.com/" target="_blank">MSCM</a>
+    <a href="https://smrp.org/Events/Annual-Conference" target="_blank">SMRP</a>
+    <a href="https://theiam.org/events/" target="_blank">IAM</a>
+    <a href="https://www.pemac.org/events/conference" target="_blank">PEMAC MainTrain</a>
+    <a href="https://reliabilityweb.com/en/press-release/the-reliability-conference-r-announces-new-dates-and-location-for-2026" target="_blank">The Reliability Conference</a>
+    <a href="https://community.ibm.com/community/user/asset-facilities/communities/community-home?CommunityKey=af2335d3-5043-4063-8509-018adc3ba1d9" target="_blank">AMUG (Australia)</a>
+    <a href="https://community.ibm.com/community/user/asset-facilities/communities/community-home?CommunityKey=23eb0724-51c5-4888-8e09-5c772ff5ec71" target="_blank">Maximo UK &amp; Ireland MUG</a>
+    <a href="https://community.ibm.com/community/user/groups/community-home?communitykey=a4661189-b685-42e1-bcc6-0198e28873f2" target="_blank">GCC Maximo MUG</a>
+    <a href="https://www.elum.biz" target="_blank">ELUM (Latin America)</a>
+    <a href="https://worldworkplace.ifma.org/" target="_blank">IFMA World Workplace</a>
+  </div>
+</section>
+
+<div class="cal-divider"></div>
+
+<!-- ════════════════════════════════════
+     S3 — FOOTER CTA
+════════════════════════════════════ -->
+<section class="cal-cta">
+  <div class="cal-cta__inner">
+    <div class="cal-eyebrow" style="justify-content:center;">Plan your year</div>
+    <h2>Attending an event? Make sure your company shows up before you get there.</h2>
+    <p>The best time to build authority with Maximo buyers is before you walk into a room with them. Let's make sure your content is working before the conference season starts.</p>
+    <div class="cal-cta-row">
+      <a href="/services" class="cal-btn-gold">View monthly packages</a>
+      <a href="mailto:info@maxcontentsolutions.com?subject=Calendar Page Inquiry" class="cal-btn-outline">Get in touch</a>
+    </div>
+    <span class="cal-cta__tagline">Expertise In. Pipeline Out.</span>
+  </div>
+</section>
+
+</div><!-- end .cal-page -->
+
+<script>
+(function () {
+
+  var CATS = {
+    major:    { label: 'MaximoWorld / TechXchange', bg: '#2176ae' },
+    mug:      { label: 'Maximo User Group',          bg: '#3a7d44' },
+    canada:   { label: 'CanMUG',                     bg: '#a32d2d' },
+    imc:      { label: 'IMC',                        bg: '#6c3fb5' },
+    muwg:     { label: 'MUWG',                       bg: '#0e7490' },
+    maxcon:   { label: 'MAXCON Event',               bg: '#7c3d8f' },
+    tririga:  { label: 'Tririga/MREF',               bg: '#c47d00' },
+    industry: { label: 'EAM Industry',               bg: '#1a6b5a' },
+    intl:     { label: 'International MUG',           bg: '#b5631a' },
+  };
+
+  var EVENTS = [
+    // ── International (shown in Past filter) ────────────────────────────────
+    { name: 'GCC Maximo User Group Conference',                                 cat: 'intl',     start: '2025-02-17', end: '2025-02-17', loc: 'Dubai, UAE',            url: 'https://community.ibm.com/community/user/blogs/nisreen-atieh/2025/09/15/gcc-maximo-user-group-conference-2025-recap' },
+    { name: 'Maximo UK \u0026 Ireland User Group \u2013 Portsmouth',          cat: 'intl',     start: '2025-05-07', end: '2025-05-08', loc: 'Portsmouth, UK',        url: 'https://community.ibm.com/community/user/asset-facilities/communities/community-home?CommunityKey=23eb0724-51c5-4888-8e09-5c772ff5ec71' },
+    { name: 'Maximo UK \u0026 Ireland User Group \u2013 Dundee',              cat: 'intl',     start: '2026-05-06', end: '2026-05-07', loc: 'Dundee, Scotland',      url: 'https://www.dnastream.com/post/what-sets-the-maximo-user-group-apart-our-takeaways-from-dundee-2026' },
+    { name: 'ELUM 2026 \u2013 Latin American Maximo User Meeting',             cat: 'intl',     start: '2026-05-13', end: '2026-05-15', loc: 'Cartagena, Colombia',   url: 'https://www.solex.biz/actualidad-ibm-maximo/30-anos-transformando-la-gestion-de-activos-no-te-pierdas-el-elum-2026/' },
+    { name: 'GCC Maximo User Group Conference',                                 cat: 'intl',     start: '2026-02-09', end: '2026-02-09', loc: 'Dubai, UAE',            url: 'https://community.ibm.com/community/user/events/event-description?CalendarEventKey=f9098b12-016c-4e6c-ae05-01994d5de09b&CommunityKey=a4661189-b685-42e1-bcc6-0198e28873f2' },
+    // ── 2025 ──────────────────────────────────────────────────────────────
+    { name: 'MaximoWorld / TRIRIGAWorld 2025',                              cat: 'major',    start: '2025-08-04', end: '2025-08-07', loc: 'Phoenix, AZ',           url: 'https://reliabilityweb.com/en/events/', tririga: true },
+    { name: 'MUWG Fall 2025 Conference',                                    cat: 'muwg',     start: '2025-09-15', end: '2025-09-18', loc: 'Denver, CO',            url: 'https://www.muwg.org/' },
+    { name: 'IBM TechXchange 2025',                                         cat: 'major',    start: '2025-10-06', end: '2025-10-09', loc: 'Orlando, FL',           url: 'https://www.ibm.com/events/techxchange' },
+    { name: 'CanMUG Fall 2025',                                             cat: 'canada',   start: '2025-10-21', end: '2025-10-21', loc: 'Calgary, AB',           url: 'https://canmug.org/' },
+    { name: 'Fall Northeast MUG (NEMUG)',                                   cat: 'mug',      start: '2025-11-05', end: '2025-11-06', loc: 'Providence, RI',        url: 'https://nemugs.com/' },
+    { name: 'Carolinas MUG',                                                cat: 'mug',      start: '2025-11-05', end: '2025-11-05', loc: 'Wilmington, NC',        url: 'https://moremaximo.com/events/calendar' },
+    { name: 'International Maintenance Conference',                         cat: 'imc',      start: '2025-12-08', end: '2025-12-11', loc: 'Marco Island, FL',      url: 'https://maintenanceconference.com/' },
+
+    // ── 2026 ──────────────────────────────────────────────────────────────
+    { name: 'Florida MUG Training Day 2026',                                cat: 'mug',      start: '2026-03-19', end: '2026-03-19', loc: 'Clearwater, FL',        url: 'https://moremaximo.com/events/calendar' },
+    { name: 'Las Vegas MUG (LVMUG)',                                        cat: 'mug',      start: '2026-03-19', end: '2026-03-19', loc: 'Las Vegas, NV',         url: 'https://lvmug.org/' },
+    { name: 'MUWG Spring 2026 Conference',                                  cat: 'muwg',     start: '2026-04-07', end: '2026-04-10', loc: 'Charlotte, NC',         url: 'https://www.muwg.org/' },
+    { name: 'GOMaximo 2026',                                                cat: 'mug',      start: '2026-04-28', end: '2026-04-29', loc: 'Houston, TX',           url: 'https://www.gomaximo.org/' },
+    { name: 'Northeast MUG (NEMUG) Spring',                                 cat: 'mug',      start: '2026-05-07', end: '2026-05-08', loc: 'Long Island City, NY',  url: 'https://nemugs.com/' },
+    { name: 'West Mountain MUG (WMMUG)',                                    cat: 'mug',      start: '2026-05-13', end: '2026-05-13', loc: 'Aurora, CO',            url: 'https://maximogroups.zohobackstage.com/WMMUG_Denver2026#/' },
+    { name: 'Southwest MUG (SWMUG) \u2013 Albuquerque',                    cat: 'mug',      start: '2026-05-14', end: '2026-05-14', loc: 'Albuquerque, NM',       url: 'https://maximogroups.zohobackstage.com/SWMUG_Albuquerque2026#/' },
+    { name: 'Greater Atlanta MUG (GAMUG)',                                  cat: 'mug',      start: '2026-05-19', end: '2026-05-19', loc: 'Suwanee, GA',           url: 'https://starboard-consulting.com/maximo-industry-events/' },
+    { name: 'The Reliability Conference 2026',                              cat: 'industry', start: '2026-05-19', end: '2026-05-20', loc: 'South San Francisco, CA', url: 'https://reliabilityweb.com/en/events/' },
+    { name: 'Carolinas MUG \u2013 IBM Maximo Lab Day & Utility Plant Tour', cat: 'mug',      start: '2026-05-21', end: '2026-05-21', loc: 'Columbia, SC',          url: 'https://www.eventbrite.com/e/carolinas-maximo-user-group-ibm-maximo-lab-day-north-utility-plant-tour-tickets-1984477984071' },
+    { name: 'Airport MUG (AMUG)',                                           cat: 'mug',      start: '2026-06-02', end: '2026-06-03', loc: 'Washington, DC',        url: 'https://moremaximo.com/events/event-description?CalendarEventKey=8fc6ce5f-ff2e-4519-b48b-019be10b6efc&CommunityKey=59eeb588-ff3d-42d8-8a54-a90906a6a000&Home=%2fevents%2fcalendar' },
+    { name: 'CanMUG Toronto',                                               cat: 'canada',   start: '2026-06-04', end: '2026-06-05', loc: 'Toronto, ON',           url: 'https://canmug.org/event-6507522' },
+    { name: 'Midwest MUG (MWMUG)',                                          cat: 'mug',      start: '2026-06-23', end: '2026-06-23', loc: 'Minneapolis, MN',       url: 'https://bit.ly/4u2lsWY' },
+    { name: 'PacMUG \u2013 Seattle',                                        cat: 'mug',      start: '2026-06-24', end: '2026-06-24', loc: 'Des Moines, WA',        url: 'https://pacmug.org/' },
+    { name: 'PacMUG \u2013 Portland',                                       cat: 'mug',      start: '2026-06-25', end: '2026-06-25', loc: 'Portland, OR',          url: 'https://pacmug.org/' },
+    { name: 'PacMUG \u2013 Los Angeles',                                    cat: 'mug',      start: '2026-07-29', end: '2026-07-29', loc: 'Culver City, CA',       url: 'https://pacmug.org/' },
+    { name: 'PacMUG \u2013 San Diego',                                      cat: 'mug',      start: '2026-07-30', end: '2026-07-30', loc: 'San Diego, CA',         url: 'https://pacmug.org/' },
+    { name: 'MaximoWorld / TRIRIGAWorld 2026',                              cat: 'major',    start: '2026-08-17', end: '2026-08-20', loc: 'Nashville, TN',         url: 'https://web.cvent.com/event/482d1552-1365-4f3a-8bb9-3cc7e5b0ee81/summary', tririga: true },
+    { name: 'SMRP Annual Conference 2026',                                  cat: 'industry', start: '2026-09-28', end: '2026-10-01', loc: 'Raleigh, NC',           url: 'https://smrp.org/Events/Annual-Conference' },
+    { name: 'IAM North American Conference 2026',                           cat: 'industry', start: '2026-10-05', end: '2026-10-07', loc: 'Toronto, ON',           url: 'https://theiam.org/events/iam-north-american-conference-2026/' },
+    { name: 'MainTrain 2026 (PEMAC)',                                       cat: 'industry', start: '2026-10-05', end: '2026-10-07', loc: 'Montr\u00e9al, QC',    url: 'https://www.pemac.org/events/conference' },
+    { name: 'MUWG Fall 2026 \u2014 Maximo Unlocked',                       cat: 'muwg',     start: '2026-10-12', end: '2026-10-15', loc: 'Bloomington, MN',       url: 'https://www.muwg.org/' },
+    { name: 'Fall Northeast MUG (NEMUG)',                                   cat: 'mug',      start: '2026-10-21', end: '2026-10-22', loc: 'Newport, RI',           url: 'https://nemugs.com/' },
+    { name: 'IBM TechXchange 2026',                                         cat: 'major',    start: '2026-10-26', end: '2026-10-29', loc: 'Atlanta, GA',           url: 'https://www.ibm.com/events/techxchange' },
+    { name: 'CanMUG Fall 2026',                                             cat: 'canada',   start: '2026-10-28', end: '2026-10-29', loc: 'Calgary, AB',           url: 'https://canmug.org/event-6578167' },
+    { name: 'DCMUG',                                                        cat: 'mug',      start: '2026-11-05', end: '2026-11-05', loc: 'TBD',                   url: 'https://www.trmnet.com/' },
+    { name: 'Florida MUG 2026 Annual Meeting',                              cat: 'mug',      start: '2026-11-05', end: '2026-11-05', loc: 'Orlando, FL',           url: 'https://starboard-consulting.com/maximo-industry-events/' },
+    { name: 'IFMA World Workplace 2026',                                    cat: 'industry', start: '2026-11-18', end: '2026-11-20', loc: 'Anaheim, CA',           url: 'https://worldworkplace.ifma.org/', tririga: true },
+    { name: 'International Maintenance Conference',                         cat: 'imc',      start: '2026-12-07', end: '2026-12-10', loc: 'Marco Island, FL',      url: 'https://maintenanceconference.com/' },
+
+    // ── 2027 ──────────────────────────────────────────────────────────────
+    { name: 'MSCM \u2013 MRO Supply Chain Matters Conference',              cat: 'industry', start: '2027-03-01', end: '2027-03-03', loc: 'Houston, TX',           url: 'https://www.mrosupplychainmatters.com/' },
+    { name: 'MAXCON \u2013 Maximo, TRIRIGA & MREF Conference at Sea',       cat: 'maxcon',   start: '2027-04-05', end: '2027-04-09', loc: 'Port Canaveral, FL',    url: 'https://liquidenterprise.com/maxcon', tririga: true },
+  ];
+
+  var today = new Date(); today.setHours(0,0,0,0);
+
+  // ── Recurring event patterns (months are 0-indexed: 0 = Jan, 11 = Dec) ──
+  var RECURRING = [
+    { name: 'Florida MUG (FLMUG)',           cat: 'mug',      months: [2, 10], loc: 'Florida',              url: 'https://moremaximo.com/events/calendar',                   lookahead: 18 },
+    { name: 'Las Vegas MUG (LVMUG)',          cat: 'mug',      months: [2],     loc: 'Las Vegas, NV',        url: 'https://lvmug.org/',                                       lookahead: 18 },
+    { name: 'CanMUG',                         cat: 'canada',   months: [5, 9],  loc: 'Canada',               url: 'https://canmug.org/',                                      lookahead: 18 },
+    { name: 'Northeast MUG (NEMUG)',          cat: 'mug',      months: [4, 9],  loc: 'Northeast US',         url: 'https://nemugs.com/',                                      lookahead: 18 },
+    { name: 'PacMUG',                         cat: 'mug',      months: [5, 6],  loc: 'West Coast',           url: 'https://pacmug.org/',                                      lookahead: 18 },
+    { name: 'MUWG Spring Conference',         cat: 'muwg',     months: [3],     loc: 'TBD',                  url: 'https://www.muwg.org/',                                    lookahead: 18 },
+    { name: 'MUWG Fall Conference',           cat: 'muwg',     months: [9],     loc: 'TBD',                  url: 'https://www.muwg.org/',                                    lookahead: 18 },
+    { name: 'IBM TechXchange',                cat: 'major',    months: [9],     loc: 'TBD',                  url: 'https://www.ibm.com/events/techxchange',                   lookahead: 24 },
+    { name: 'MaximoWorld / TRIRIGAWorld',     cat: 'major',    months: [7],     loc: 'TBD',                  url: 'https://reliabilityweb.com/en/events/',                    lookahead: 24, tririga: true },
+    { name: 'International Maintenance Conference (IMC)', cat: 'imc', months: [11], loc: 'Marco Island, FL', url: 'https://maintenanceconference.com/',                       lookahead: 18 },
+    { name: 'GOMaximo',                       cat: 'mug',      months: [3],     loc: 'Houston, TX',          url: 'https://www.gomaximo.org/',                                lookahead: 18 },
+    { name: 'Airport MUG (AMUG)',             cat: 'mug',      months: [5],     loc: 'TBD',                  url: 'https://airportmug.com/',                                  lookahead: 18 },
+    { name: 'Carolinas MUG',                  cat: 'mug',      months: [4],     loc: 'Carolinas',            url: 'https://moremaximo.com/events/calendar',                   lookahead: 18 },
+    { name: 'Southwest MUG (SWMUG)',          cat: 'mug',      months: [4],     loc: 'Southwest US',         url: 'https://swmug.org/',                                       lookahead: 18 },
+    { name: 'West Mountain MUG (WMMUG)',      cat: 'mug',      months: [4],     loc: 'Mountain West',        url: 'https://wmmug.org/',                                       lookahead: 18 },
+    { name: 'MAXCON Cruise Conference',       cat: 'maxcon',   months: [3],     loc: 'TBD',                  url: 'https://liquidenterprise.com/maxcon', lookahead: 24, tririga: true },
+    { name: 'MSCM \u2013 MRO Supply Chain Matters Conference', cat: 'industry', months: [2], loc: 'Houston, TX',  url: 'https://www.mrosupplychainmatters.com/',              lookahead: 24 },
+    { name: 'SMRP Annual Conference',         cat: 'industry', months: [8],     loc: 'TBD',                  url: 'https://smrp.org/Events/Annual-Conference',                lookahead: 24 },
+    { name: 'IAM North American Conference',  cat: 'industry', months: [9],     loc: 'Canada',               url: 'https://theiam.org/events/',                               lookahead: 24 },
+    { name: 'MainTrain (PEMAC)',              cat: 'industry', months: [9],     loc: 'Canada',               url: 'https://www.pemac.org/events/conference',                  lookahead: 24 },
+    { name: 'The Reliability Conference',     cat: 'industry', months: [4],     loc: 'TBD',                  url: 'https://reliabilityweb.com/en/events/',                    lookahead: 24 },
+    { name: 'IFMA World Workplace',           cat: 'industry', months: [10],    loc: 'TBD',                  url: 'https://worldworkplace.ifma.org/',                         lookahead: 24, tririga: true },
+  ];
+
+  // ── Projection engine ─────────────────────────────────────────────────────
+  function buildProjected() {
+    var projected = [];
+
+    RECURRING.forEach(function(r) {
+      var maxMonths = r.lookahead || 18;
+      var maxHorizon = new Date(today);
+      maxHorizon.setMonth(maxHorizon.getMonth() + maxMonths);
+
+      var covered = {};
+      EVENTS.forEach(function(e) {
+        var rWords = r.name.toLowerCase().split(/[\s\/\-\(\)]+/).filter(function(w){ return w.length > 3; });
+        var eName  = e.name.toLowerCase();
+        var matches = rWords.filter(function(w){ return eName.indexOf(w) >= 0; });
+        var firstWord = rWords[0] || '';
+        var firstMatches = firstWord.length >= 4 && eName.indexOf(firstWord) >= 0;
+        if (matches.length >= 2 || (rWords.length === 1 && matches.length === 1) || firstMatches) {
+          var ym = e.start.slice(0, 7);
+          covered[ym] = true;
+        }
+      });
+
+      var yr = today.getFullYear();
+      var endYr = maxHorizon.getFullYear();
+
+      for (var y = yr; y <= endYr; y++) {
+        r.months.forEach(function(m) {
+          var projDate = new Date(y, m, 1);
+          if (projDate < today) return;
+          if (projDate > maxHorizon) return;
+          var ym = y + '-' + (m < 9 ? '0' : '') + (m + 1);
+          if (covered[ym]) return;
+
+          projected.push({
+            name:      r.name,
+            cat:       r.cat,
+            start:     ym + '-01',
+            end:       ym + '-01',
+            loc:       r.loc,
+            url:       r.url,
+            tririga:   r.tririga || false,
+            predicted: true,
+          });
+        });
+      }
+    });
+
+    return projected;
+  }
+
+  function getAllEvents() {
+    var proj = buildProjected();
+    var all  = EVENTS.concat(proj);
+    all.sort(function(a, b) {
+      var d = a.start.localeCompare(b.start);
+      if (d !== 0) return d;
+      return (a.predicted ? 1 : 0) - (b.predicted ? 1 : 0);
+    });
+    return all;
+  }
+
+  function parseD(s){var p=s.split('-');return new Date(+p[0],+p[1]-1,+p[2]);}
+
+  function fmtRange(e) {
+    if (e.predicted) {
+      var d = parseD(e.start);
+      return d.toLocaleDateString('en-US', {month:'long'}) + ' ' + d.getFullYear() + ' \u2014 date TBD';
+    }
+    var a=parseD(e.start),b=parseD(e.end),mo=a.toLocaleDateString('en-US',{month:'short'});
+    if(e.start===e.end) return mo+' '+a.getDate()+', '+a.getFullYear();
+    if(a.getMonth()===b.getMonth()&&a.getFullYear()===b.getFullYear()) return mo+' '+a.getDate()+'\u2013'+b.getDate()+', '+b.getFullYear();
+    return mo+' '+a.getDate()+' \u2013 '+b.toLocaleDateString('en-US',{month:'short'})+' '+b.getDate()+', '+b.getFullYear();
+  }
+
+  function isPast(e)     { return !e.predicted && parseD(e.end) < today; }
+  function isUpcoming(e) { return e.predicted || parseD(e.end) >= today; }
+
+  var view='month', filter='confirmed';
+  var ALL_EVENTS = getAllEvents();
+
+  function getFiltered(){
+    var cutoff=new Date(today); cutoff.setMonth(cutoff.getMonth()-12);
+    return ALL_EVENTS.filter(function(e){
+      if(filter==='past')      return isPast(e) && !e.predicted;
+      if(!e.predicted && parseD(e.end)<cutoff) return false;
+      if(filter==='tririga')   return !!e.tririga && !e.predicted && isUpcoming(e);
+      if(filter==='confirmed') return !e.predicted && isUpcoming(e);
+      if(filter==='upcoming')  return isUpcoming(e);
+      if(filter==='all')       return true;
+      return e.cat===filter && !e.predicted && isUpcoming(e);
+    });
+  }
+
+  function renderSpot(){
+    var up=EVENTS.filter(isUpcoming).sort(function(a,b){return parseD(a.start)-parseD(b.start);});
+    if(!up.length) return;
+    var e=up[0], c=CATS[e.cat];
+    var days=Math.ceil((parseD(e.start)-today)/86400000);
+    var label=days===0?'Today':days===1?'Tomorrow':'In '+days+' days';
+    document.getElementById('mcal-spot-name').textContent=e.name;
+    document.getElementById('mcal-spot-date').textContent=fmtRange(e);
+    document.getElementById('mcal-spot-loc').textContent='\ud83d\udccd '+e.loc;
+    document.getElementById('mcal-spot-badge').innerHTML='<span class="mcal-spot-badge" style="background:'+c.bg+'">'+label+'</span>';
+  }
+
+  function renderMonth(){
+    var evts=getFiltered();
+    if(!evts.length){document.getElementById('mcal-view-month').innerHTML='<div class="mcal-empty">No events match this filter.</div>';return;}
+    var byYM={};
+    evts.forEach(function(e){var k=e.start.slice(0,7);if(!byYM[k])byYM[k]=[];byYM[k].push(e);});
+    var keys=Object.keys(byYM).sort();
+    var years=[];
+    keys.forEach(function(k){var y=k.slice(0,4);if(years.indexOf(y)<0)years.push(y);});
+    var html='<div class="mcal-months">';
+    years.forEach(function(yr){
+      html+='<div class="mcal-yr-lbl">'+yr+'</div>';
+      keys.filter(function(k){return k.startsWith(yr);}).forEach(function(mk){
+        var mo=new Date(mk+'-02').toLocaleDateString('en-US',{month:'short'});
+        html+='<div class="mcal-month-row"><div class="mcal-month-lbl">'+mo+'</div><div class="mcal-month-evts">';
+        byYM[mk].forEach(function(e){
+          var c=CATS[e.cat];
+          var past=isPast(e)?' past':'';
+          var pred=e.predicted?' predicted':'';
+          var pillStyle=e.predicted
+            ? 'border:2px dashed '+c.bg+';color:'+c.bg+';text-decoration:none'
+            : 'background:'+c.bg+';text-decoration:none';
+          var tbdTag=e.predicted?'<span class="mcal-pill-tbd">TBD</span>':'';
+          var inner='<span style="width:7px;height:7px;border-radius:50%;background:'+(e.predicted?c.bg:'rgba(255,255,255,0.4)')+';display:inline-block;flex-shrink:0"></span>'+e.name+tbdTag+'<span class="mcal-pill-city"> \u00b7 '+fmtRange(e)+'</span>';
+          var tooltip=e.name+' \u00b7 '+fmtRange(e)+' \u00b7 '+e.loc+(e.predicted?' (predicted based on history)':'');
+          if(e.url){html+='<a href="'+e.url+'" target="_blank" class="mcal-pill'+past+pred+'" style="'+pillStyle+'" title="'+tooltip+'">'+inner+'</a>';}
+          else{html+='<div class="mcal-pill'+past+pred+'" style="background:'+c.bg+'" title="'+tooltip+'">'+inner+'</div>';}
+        });
+        html+='</div></div>';
+      });
+    });
+    html+='</div>';
+    document.getElementById('mcal-view-month').innerHTML=html;
+  }
+
+  function renderList(){
+    var evts=getFiltered();
+    if(!evts.length){document.getElementById('mcal-view-list').innerHTML='<div class="mcal-empty">No events match this filter.</div>';return;}
+    var html='<div class="mcal-list">', curYr='';
+    evts.forEach(function(e){
+      var yr=e.start.slice(0,4);
+      if(yr!==curYr){html+='<div class="mcal-yr-lbl">'+yr+'</div>';curYr=yr;}
+      var c=CATS[e.cat];
+      var past=isPast(e)?' past':'';
+      var pred=e.predicted?' predicted':'';
+      var predBadge=e.predicted?'<span class="mcal-predicted-badge">Date TBD</span>':'';
+      html+='<div class="mcal-list-item'+past+pred+'">';
+      html+='<div class="mcal-list-dot" style="background:'+c.bg+(e.predicted?';opacity:0.6':'')+';border:'+(e.predicted?'2px dashed '+c.bg:'none')+'"></div>';
+      html+='<div><div class="mcal-list-name">';
+      html+=(e.url?'<a href="'+e.url+'" target="_blank">'+e.name+'</a>':e.name);
+      html+='<span class="mcal-list-tag" style="background:'+c.bg+'">'+c.label+'</span>';
+      html+=predBadge;
+      html+='</div><div class="mcal-list-meta">'+fmtRange(e)+' &nbsp;\u00b7&nbsp; '+e.loc+'</div></div></div>';
+    });
+    html+='</div>';
+    document.getElementById('mcal-view-list').innerHTML=html;
+  }
+
+  window.mcalSV=function(v){
+    view=v;
+    document.getElementById('mcal-btn-month').classList.toggle('on',v==='month');
+    document.getElementById('mcal-btn-list').classList.toggle('on',v==='list');
+    document.getElementById('mcal-view-month').style.display=v==='month'?'':'none';
+    document.getElementById('mcal-view-list').style.display=v==='list'?'':'none';
+    if(v==='month') renderMonth(); else renderList();
+  };
+
+  var FILTER_IDS = ['all','major','mug','canada','imc','muwg','maxcon','tririga','industry','intl','upcoming','past','confirmed'];
+  var FILTER_CAT = {
+    major: 'major', mug: 'mug', canada: 'canada',
+    imc: 'imc', muwg: 'muwg', maxcon: 'maxcon', tririga: 'tririga', industry: 'industry'
+  };
+
+  window.mcalSF=function(f){
+    filter=f;
+    FILTER_IDS.forEach(function(id){
+      var btn = document.getElementById('mcal-f-'+id);
+      if (!btn) return;
+      var isOn = (id === f);
+      btn.classList.toggle('on', isOn);
+      if (isOn && FILTER_CAT[id]) {
+        btn.style.background = CATS[FILTER_CAT[id]].bg;
+        btn.style.borderColor = CATS[FILTER_CAT[id]].bg;
+        btn.style.color = '#fff';
+      } else if (!isOn && FILTER_CAT[id]) {
+        btn.style.background = '';
+        btn.style.borderColor = CATS[FILTER_CAT[id]].bg;
+        btn.style.color = CATS[FILTER_CAT[id]].bg;
+      } else if (isOn) {
+        btn.style.background = '#5A2F90';
+        btn.style.borderColor = '#5A2F90';
+        btn.style.color = '#fff';
+      } else {
+        btn.style.background = '';
+        btn.style.borderColor = '';
+        btn.style.color = '';
+      }
+    });
+    if(view==='month') renderMonth(); else renderList();
+  };
+
+  renderSpot(); renderMonth();
+
+  // Apply category border colors to filter buttons on load
+  Object.keys(FILTER_CAT).forEach(function(id){
+    var btn = document.getElementById('mcal-f-'+id);
+    if (btn && CATS[id]) {
+      btn.style.borderColor = CATS[id].bg;
+      btn.style.color = CATS[id].bg;
+    }
+  });
+
+})();
+
+// Overflow fix
+(function(){
+  document.documentElement.style.overflowX='hidden';
+  document.body.style.overflowX='hidden';
+  document.body.style.maxWidth='100%';
+  var page=document.querySelector('.cal-page');
+  if(!page) return;
+  page.style.width='100%'; page.style.maxWidth='100%'; page.style.overflowX='hidden';
+  var el=page.parentElement;
+  for(var i=0;i<8;i++){
+    if(!el||el===document.body) break;
+    var cs=window.getComputedStyle(el);
+    if(parseFloat(cs.marginLeft)<0) el.style.marginLeft='0px';
+    if(parseFloat(cs.left)<0) el.style.left='0px';
+    el.style.overflowX='hidden'; el.style.maxWidth='100%';
+    el=el.parentElement;
+  }
+})();
+</script>
