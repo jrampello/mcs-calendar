@@ -2,25 +2,7 @@
      MAX CONTENT SOLUTIONS — CONFERENCE CALENDAR PAGE EMBED
      Brand: Inter | #1F1A2E | #5A2F90 | #886CAE | #CDBDD9
             #C8873A | #F0D9BC | #2E6E8E | #F5F3F7
-
-     HOW TO USE IN WEBFLOW:
-     1. Delete every section between your header and footer
-     2. Add a single "Embed" block in that empty space
-     3. Double-click → paste ALL of this code → Save & Close
-     4. Set the Webflow SECTION wrapping this embed:
-        - Background: #1F1A2E
-        - Padding: 0 on all sides
-
-     CHANGED IN THIS VERSION (Sept 27, 2026):
-     - Added Florida MUG 2026 Annual Meeting (Nov 5, Orlando)
-     - Florida MUG projection now March + November
-     - SMRP projection moved to September (prevents duplicate)
-     - CanMUG Fall 2026 location standardized to "Calgary, AB"
-     - DCMUG link corrected to trmnet.com
-     - MSCM recategorized as EAM Industry
-     - "Upcoming only" button now highlights correctly
-     - Footer CTA: "your firm" changed to "your company"
-     ============================================================ -->
+    ============================================================ -->
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
